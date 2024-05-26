@@ -1,0 +1,48 @@
+def kreska(dzial,lista_war):
+    """funkjca wykonuje dzialanie wybrane przez uzytkownika i wyswietle je w postaci pod kreska w terminalu
+    input dzial(+/-/*) - uzytokwnik wybiera jakie dzialanie z podanych chce wykonac
+    lista_wart(lista/int) - uzytkownik wpisuje na jakich wartosciach ma byc wykonane dzialanie
+    output terminal pokazuje dzialanie i wyswietla jego wynik"""
+
+
+
+    if dzial=='+':
+        x=[]
+        for p in range(len(lista_war)):
+            x.append(len(str(lista_war[p])))
+        suma = len(str(sum(lista_war)))
+        y = suma - len(str(x[-1])) + 1
+        for po in range(len(lista_war)-1):
+            yy=suma-len(str(lista_war[po]))+len(str(lista_war[-1]))+1
+            print(" "*(yy)+str(lista_war[po]))
+        c="+"+" "*y+str(lista_war[-1])
+        print(c)
+        print('_'*len(c))
+        print(" "*(len(c)-suma)+str(sum(lista_war)))
+
+    if dzial=="-":
+        y = lista_war[0]
+        for x in range(1,len(lista_war)):
+            y=y-lista_war[x]
+        suma=len(str(y))
+        c="-"+" "*suma+str(lista_war[-1])
+        for po in range(len(lista_war)-1):
+            oki=len(str(lista_war[po]))
+            print(" "*(len(c)-oki)+str(lista_war[po]))
+        print(c)
+        print('_'*len(c))
+        print(" "*(len(c)-suma)+str(y))
+    if dzial=='*':
+        y=[]
+        z=1
+        for x in range(len(lista_war)):
+            y.append(len(str(lista_war[x])))
+            z=lista_war[x]*z
+        y.append(len(str(z)))
+        c=("*"+" "*(y[-1]-y[-2]+1)+str(lista_war[-1]))
+        for po in range(len(lista_war)-1):
+            print(" "*(len(c)-y[po])+str(lista_war[po]))
+        print(c)
+        print("-"*len(c))
+        print(" "*(len(c)-y[-1])+str(z))
+kreska('+',[11011,6531234])
